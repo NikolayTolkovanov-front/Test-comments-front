@@ -1,6 +1,6 @@
 <template>
     <section class="container">
-        <h1 class="h1">Comments</h1>
+        <h1 class="h1">{{ title }}</h1>
 
         <!-- successMessage -->
         <SuccessMessage />
@@ -29,13 +29,9 @@ export default {
 
     data() {
         return {
-            message: "Hello world",
+            title: "Comments",
         };
     },
-    methods: {
-    },
-    async mounted() {
-    }
 };
 </script>
 <style>

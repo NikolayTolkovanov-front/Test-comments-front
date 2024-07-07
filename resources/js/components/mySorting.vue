@@ -45,9 +45,7 @@ export default {
     methods: {
         ...mapActions(['toggleSort']),
         toggleSorting(key) {
-            console.log('start toggleSorting', key);
             const newOrder = (this.sortKey === key && this.sortOrder === 'asc') ? 'desc' : 'asc'
-
             this.toggleSort({key, order: newOrder})
         },
     },

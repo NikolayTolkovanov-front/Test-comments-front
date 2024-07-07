@@ -38,7 +38,6 @@ const commentsStore = new Vuex.Store({
 
         async addComment({ commit }, form) {
             try {
-                console.log('form', form);
                 if (!form?.name.length || !form?.text.length || !form?.date.length) {
                     throw new Error('fields are not filled')
                 }
@@ -140,9 +139,6 @@ const commentsStore = new Vuex.Store({
         SET_SORT_ORDER(state, { key, order }) {
             state.sortKey = key;
             state.sortOrder = order;
-
-            console.log('state.sortKey', state.sortKey);
-            console.log('state.sortOrder', state.sortOrder);
         },
 
         SET_CURRENT_PAGE(state, page) {
@@ -163,7 +159,6 @@ const commentsStore = new Vuex.Store({
         paginatedComments(state, getters) {
             const start = (state.currentPage - 1) * state.perPage;
             const end = start + state.perPage;
-            console.log('length', getters.sortedComments.slice(start, end));
             return getters.sortedComments.slice(start, end);
         },
         totalPages(state) {

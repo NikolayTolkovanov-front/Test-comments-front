@@ -37,8 +37,6 @@ class commentsService {
                 return []
             }
 
-            console.log("response.data", response.data);
-
             return response.data;
         } catch (error) {
             return this.#validateError(error)
@@ -65,13 +63,11 @@ class commentsService {
     async removeComment(commentId) {
         try {
             const newURL = new URL(`comments/${commentId}`, this.#baseURL)
-            console.log('newURL', newURL);
             const response = await axios.delete(newURL);
 
             if (!response.data || typeof response.data !== 'string' ) {
                 throw new Error("Comment not removed, no data");
             }
-            console.log('response.data', response.data);
             return response.data;
         } catch (error) {
             return this.#validateError(error)
